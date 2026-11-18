@@ -1,166 +1,105 @@
-\# Bridge Pattern - Messaging System
+# Bridge Pattern - Messaging System
 
+## Introduction
 
+This is my Java project for the Bridge Design Pattern assignment.
 
-\## About the Project
+The Bridge Pattern separates message types from the methods used to send messages. This makes the code easier to change and extend.
 
+For this assignment, I used an existing messaging example and added a new feature to it.
 
+## Original Project
 
-This is a simple Java project about the Bridge Design Pattern.
+I used the Messaging Bridge example from this GitHub repository:
 
+https://github.com/vesavvo/design_patterns/tree/master/src/main/java/bridge/messaging
 
-
-The Bridge Pattern separates the message types from the ways messages are sent. This makes it easier to add new message types or sending methods without changing the existing code.
-
-
-
-I used an existing messaging example and extended it by adding a new way to send messages.
-
-
-
-\## Original Project
-
-
-
-I used the messaging example from this GitHub repository:
-
-
-
-https://github.com/vesavvo/design\_patterns/tree/master/src/main/java/bridge/messaging
-
-
-
-\## How It Works
-
-
+## Project Structure
 
 The project has two message types:
 
-\- `PersonalMessage`
+- `PersonalMessage`
+- `BusinessMessage`
 
-\- `BusinessMessage`
+Both classes extend the abstract `Message` class.
 
+There is also an interface called `MessageImp` for sending messages.
 
+The original sending methods are:
 
-Both extend the `Message` class.
+- `EmailImp`
+- `SMSImp`
+- `InstantMessageImp`
 
+Each class implements the `MessageImp` interface.
 
-
-The `MessageImp` interface is used for different ways of sending messages:
-
-\- `EmailImp`
-
-\- `SMSImp`
-
-\- `InstantMessageImp`
-
-
-
-The message types and sending methods can be used together without depending directly on each other.
-
-
-
-\## What I Added
-
-
+## New Feature - Push Notification
 
 I added a new class called `PushNotificationImp`.
 
+This class implements the `MessageImp` interface and uses the `sendMessage()` method to display a push notification in the console.
 
+I also updated `Main.java` to test the new feature with `BusinessMessage`.
 
-This class implements the `MessageImp` interface and has a `sendMessage()` method.
+The new feature works without changing the existing message classes.
 
+## How to Run
 
+I used Java and IntelliJ IDEA to work on this project.
 
-It prints a push notification message to the console. It does not send a real notification.
+First, open CMD in the project folder.
 
-
-
-I also updated `Main.java` to test the new class with `BusinessMessage`.
-
-
-
-I didn't need to change the existing message classes to add this feature.
-
-
-
-\## How to Run
-
-
-
-I used Java and IntelliJ IDEA for this project.
-
-
-
-Open CMD in the project folder.
-
-
-
-Compile the Java files:
-
-
+**1. Compile the project:**
 
 ```cmd
-
-javac -d out src\\main\\java\\bridge\\messaging\\\*.java
-
+javac -d out src\main\java\bridge\messaging\*.java
 ```
 
-
-
-Run the program:
-
-
+**2. Run the project:**
 
 ```cmd
-
 java -cp out bridge.messaging.Main
-
 ```
 
+## Screenshots
 
+### Screenshot 1 - Original Program
 
-\## Screenshots
+This screenshot shows the original messaging system working with Email, SMS, and Instant Message.
 
+![Original Messaging System](./screenshot.png)
 
+### Screenshot 2 - Program with Push Notification
 
-\### 1. Original Messaging System
+This screenshot shows the program after adding the Push Notification feature.
 
+![Push Notification Output](./screenshot2.png)
 
+## Testing
 
-This screenshot shows the original program working with Email, SMS, and Instant Message.
+I tested the project using CMD.
 
+First, I ran the original program to check that the three sending methods worked.
 
+After adding `PushNotificationImp`, I compiled and ran the project again.
 
-!\[Original program output](screenshot.png)
+The program displayed the new push notification message:
 
+```text
+Sending a business message:
+Sending a push notification: You have a new notification!
+```
 
+The original sending methods also worked correctly.
 
-\### 2. Messaging System with Push Notification
-
-
-
-This screenshot shows the program after adding the new Push Notification feature.
-
-
-
-!\[Program output with push notification](screenshot2.png)
-
-
-
-\## Conclusion
-
-
+## Conclusion
 
 In this project, I learned how the Bridge Design Pattern works in Java.
 
+I added a new sending method without changing the main structure of the program.
 
+This assignment helped me understand how the Bridge Pattern makes it easier to add new features to an existing project.
 
-I added a new sending method without changing the main structure of the program. I also tested the program using CMD to check that the new feature works.
-
-
-
-This exercise helped me understand how the Bridge Pattern makes code easier to extend.
 
 
 
