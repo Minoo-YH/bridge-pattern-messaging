@@ -1,0 +1,7 @@
+HOW TO RUN THE PROJECT
+
+1. Open CMD in the project folder.
+2. Compile:
+javac -d out src\main\java\bridge\messaging\*.java
+3. Run:
+java -cp out bridge.messaging.Main
